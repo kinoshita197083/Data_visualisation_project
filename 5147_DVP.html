@@ -203,6 +203,51 @@
 
     </script>
 
+    <div class="CFR">
+        <h1 class="CFR_h1">Case Fatality Rate Comparison between 2009 Pandemic & COVID-19</h1>
+        <p class="CFR_p">Fatality can be simply referred to the death rate per 100 cases of an infectious disease. When
+            performing statistical analysis of fatality, there have been three mainstream approaches including Case
+            Fatality Rate (CFR), Infectious Fatality Rate (IFR) and Crude Mortality Rate. CFR has been a popular
+            approach and often cited by media when risk of death of COVID-19 is discussed; It is calculated through
+            “number of death / total of diagnosed cases * 100“ while IFR is calculated as “number of death / total
+            number of infected * 100”. Ideally, IFR seems to be the best approach to answer the question of “how deadly
+            the disease is ?”, however, total number of infected is often not known especially for COVID-19 as there are
+            many people who were symptomless and thus had not been diagnosed as a case. Therefore, CFR becomes a
+            reasonable choice for media as well as the current study in comparing the fatality rate of the diseases.</p>
+
+        <div class="CFR_vis">
+            <div class="CFR_div">
+                <svg id="triangle" viewBox="0 0 100 100">
+                    <polygon class="tri1" points="50 15, 100 100, 0 100" fill="#d52105b4" />
+                    <text x="50" y="12" text-anchor="middle" fill="white" font-size="5">2009 Flu (H1N1) </text>
+                </svg>
+            </div>
+            <div class="CFR_div2">
+                <svg id="triangle2" viewBox="0 0 100 100">
+                    <polygon class="tri2" points="50 15, 100 100, 0 100" fill="#357EC7" />
+                    <text x="50" y="6" text-anchor="middle" fill="white" font-size="9">Seasonal Flu </text>
+                </svg>
+            </div>
+            <div class="CFR_div3">
+                <svg id="triangle3" viewBox="0 0 100 100">
+                    <polygon class="tri3" points="50 15, 100 100, 0 100" fill="#6495ED" />
+                    <text x="50" y="6" text-anchor="middle" fill="white" font-size="9">COVID-19 </text>
+                </svg>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- <script>
+        var svg = d3.select("#CFR_div")
+            .append("svg")
+            .attr("wdith", 50)
+            .attr("height", 50)
+            .append("g");
+
+        var triangle = svg.append("polygon")
+    </script> -->
+
 
     <script type="text/javascript">
         // var svg = d3.select("#canvas");

@@ -153,3 +153,70 @@ body {
     padding-top: 5%;
     padding-bottom: 5%;
 }
+
+.CFR {
+    position: relative;
+    margin-bottom: 105px;
+    padding-left: 2%;
+}
+
+.CFR_vis {
+    padding-left: 25%;
+    margin-bottom: 2%;
+    margin-top: -10%;
+}
+
+.CFR_div {
+    width: 30%;
+    height: 30%;
+    padding-left: 550px;
+    position: absolute;
+    z-index: 2;
+}
+
+.CFR_div2 {
+    width: 10%;
+    height: 10%;
+    padding-left: 450px;
+    position: absolute;
+    padding-top: 287px;
+    z-index: 1;
+}
+
+.CFR_div3 {
+    width: 8.8%;
+    height: 8.8%;
+    padding-left: 350px;
+    position: absolute;
+    padding-top: 304px;
+    z-index: 0;
+}
+
+.CFR_h1 {
+    font-family: monospace;
+    color: black;
+}
+
+.CFR_p {
+    font-family: monospace;
+    color: black;
+    width: 50%;
+    margin-top: 20px;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+.tri1:hover {
+    fill: #fe2302b4;
+    opacity: 1;
+}
+
+.tri2:hover {
+    fill: #084099;
+    opacity: 1;
+}
+
+.tri3:hover {
+    fill: #1f69e0;
+    opacity: 1;
+}
