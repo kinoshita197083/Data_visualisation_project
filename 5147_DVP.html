@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8' />
+    <!-- Load required scripts -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+    <link rel="stylesheet" href="Home.css">
+</head>
+
+
+<body>
+    <div class="wrapper">
+        <div class="typing-demo">
+            Is Covid just a flu? If not, will it be?
+        </div>
+    </div>
+
+    <div class="intro">
+        <h1 class="intro_h1">The year of 2019 has been a lifechanging year
+        </h1>
+
+        <div class="paragraph-container">
+            <p class="intro_p">
+                And it will surely occupy at least a page in future
+                literatures. The debuting of COVID has brought significant impacts to the world, though, some may see it
+                as a marvellous opportunity while some may see it as a catastrophe. The attitude of a sovereign, or even
+                a nation, determine its behavioural decisions as well as its countermeasure towards COVID to a great
+                extent. Speaking of national level of point of view, each nation’s strategies in manging the pandemic
+                largely varied. In essence, it is a dilemma of putting either the economy or social stability as the top
+                priority at that one specific timeframe. “It’s just a flu” has been a famous quote of former president
+                of the U.S. – Donald Trump during the initial stage of the pandemic. This data exploration study
+                attempts to examine such statement, to see whether it was just a soothing statement or in fact, it was a
+                scientific conclusion.
+            </p>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="box">
+            <p class="test">Global Death Toll of Covid-19 has Exceeded 6 million</p>
+        </div>
+    </div>
+
+    <!-- Reference: https://d3-graph-gallery.com/graph/choropleth_hover_effect.html -->
+    <!-- <div class="first"> -->
+    <!-- Create an element where the map will take place -->
+    <!-- <svg id="my_dataviz" width="600" height="500"></svg>
+        <script>
+
+            // The svg
+            var svg = d3.select("svg"),
+                width = +svg.attr("width"),
+                height = +svg.attr("height");
+
+            // Map and projection
+            var path = d3.geoPath();
+            var projection = d3.geoMercator()
+                .scale(70)
+                .center([0, 20])
+                .translate([width / 2, height / 2]);
+
+            // Data and color scale
+            var data = d3.map();
+            var colorScale = d3.scaleThreshold()
+                .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
+                .range(d3.schemeBlues[7]);
+
+            // Load external data and boot
+            d3.queue()
+                .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
+                .defer(d3.csv, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", function (d) { data.set(d.code, +d.pop); })
+                .await(ready);
+
+            function ready(error, topo) {
+
+                let mouseOver = function (d) {
+                    d3.selectAll(".Country")
+                        .transition()
+                        .duration(200)
+                        .style("opacity", .5)
+                    d3.select(this)
+                        .transition()
+                        .duration(200)
+                        .style("opacity", 1)
+                        .style("stroke", "black")
+                }
+
+                let mouseLeave = function (d) {
+                    d3.selectAll(".Country")
+                        .transition()
+                        .duration(200)
+                        .style("opacity", .8)
+                    d3.select(this)
+                        .transition()
+                        .duration(200)
+                        .style("stroke", "transparent")
+                }
+
+                // Draw the map
+                svg.append("g")
+                    .selectAll("path")
+                    .data(topo.features)
+                    .enter()
+                    .append("path")
+                    // draw each country
+                    .attr("d", d3.geoPath()
+                        .projection(projection)
+                    )
+                    // set the color of each country
+                    .attr("fill", function (d) {
+                        d.total = data.get(d.id) || 0;
+                        return colorScale(d.total);
+                    })
+                    .style("stroke", "transparent")
+                    .attr("class", function (d) { return "Country" })
+                    .style("opacity", .8)
+                    .on("mouseover", mouseOver)
+                    .on("mouseleave", mouseLeave)
+            }
+
+        </script>
+    </div> -->
+
+
+    <!-- Reference: https://d3-graph-gallery.com/graph/barplot_button_data_csv.html -->
+    <button onclick="update('var1')">Variable 1</button>
+    <button onclick="update('var2')">Variable 2</button>
+
+    <!-- Reserve a div to contain the barchart -->
+    <div id="my_dataviz"></div>
+
+    <script>
+
+        // set the dimensions and margins of the graph
+        var margin = { top: 30, right: 30, bottom: 70, left: 60 },
+            width = 460 - margin.left - margin.right,
+            height = 400 - margin.top - margin.bottom;
+
+        // append the svg object to the body of the page
+        var svg = d3.select("#my_dataviz")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform",
+                "translate(" + margin.left + "," + margin.top + ")");
+
+        // Initialize the X axis
+        var x = d3.scaleBand()
+            .range([0, width])
+            .padding(0.2);
+        var xAxis = svg.append("g")
+            .attr("transform", "translate(0," + height + ")")
+
+        // Initialize the Y axis
+        var y = d3.scaleLinear()
+            .range([height, 0]);
+        var yAxis = svg.append("g")
+            .attr("class", "myYaxis")
+
+
+        // A function that create / update the plot for a given variable:
+        function update(selectedVar) {
+
+            // Parse the Data
+            d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/barplot_change_data.csv", function (data) {
+
+                // X axis
+                x.domain(data.map(function (d) { return d.group; }))
+                xAxis.transition().duration(1000).call(d3.axisBottom(x))
+
+                // Add Y axis
+                y.domain([0, d3.max(data, function (d) { return +d[selectedVar] })]);
+                yAxis.transition().duration(1000).call(d3.axisLeft(y));
+
+                // variable u: map data to existing bars
+                var u = svg.selectAll("rect")
+                    .data(data)
+
+                // update bars
+                u
+                    .enter()
+                    .append("rect")
+                    .merge(u)
+                    .transition()
+                    .duration(1000)
+                    .attr("x", function (d) { return x(d.group); })
+                    .attr("y", function (d) { return y(d[selectedVar]); })
+                    .attr("width", x.bandwidth())
+                    .attr("height", function (d) { return height - y(d[selectedVar]); })
+                    .attr("fill", "#69b3a2")
+            })
+
+        }
+
+        // Initialize plot
+        update('var1')
+
+    </script>
+
+
+    <script type="text/javascript">
+        // var svg = d3.select("#canvas");
+    </script>
+
+</body>
+
+</html>

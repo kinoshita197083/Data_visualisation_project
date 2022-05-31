@@ -1,0 +1,155 @@
+body {
+    background-color: rgb(105, 173, 242);
+}
+
+.intro {
+    background-color: white;
+}
+
+.wrapper {
+    height: 100vh;
+    /*This part is important for centering*/
+    display: grid;
+    place-items: center;
+}
+
+.typing-demo {
+    width: 40ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 2.5em;
+    color: white;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
+}
+
+/* div2 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background: #f0f0f0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 40vh;
+}
+
+.box {
+    padding-top: 1px;
+    border-radius: 20px;
+    width: 60px;
+    height: 60px;
+    background: #f0f0f0;
+    box-shadow: 0 0 0 #cccccc,
+        0 0 0 #ffffff,
+        10px 10px 10px #cccccc inset,
+        -10px -10px 10px #ffffff inset;
+    animation: anime 7s cubic-bezier(0.16, 1, 0.3, 1) 1s infinite alternate;
+    /* animation-fill-mode: forwards; */
+}
+
+@keyframes anime {
+    0% {
+        width: 60px;
+        height: 60px;
+        background: #f0f0f0;
+        box-shadow: 0 0 0 #cccccc,
+            0 0 0 #ffffff,
+            10px 10px 10px #cccccc inset,
+            -10px -10px 10px #ffffff inset;
+
+    }
+
+    25% {
+        width: 60px;
+        height: 60px;
+        background: #f8f8f8;
+        box-shadow: 10px 10px 10px #cccccc,
+            10px 10px 10px #ffffff,
+            0 0 0 #cccccc inset,
+            0 0 0 #ffffff inset;
+    }
+
+    50% {
+        width: 60px;
+        height: 150px;
+        background: #f8f8f8;
+        box-shadow: 10px 10px 10px #cccccc,
+            10px 10px 10px #ffffff,
+            0 0 0 #cccccc inset,
+            0 0 0 #ffffff inset;
+    }
+
+    100% {
+        width: 400px;
+        height: 150px;
+        /* background: #fafafa; */
+        box-shadow: 40px 40px 40px #cccccc,
+            0 0 0 #ffffff,
+            0 0 0 #cccccc inset,
+            2px 2px 2px #ffffff inset;
+        background: black;
+    }
+}
+
+/* Intro */
+.intro_h1 {
+    font-family: monospace;
+    font-size: 2rem;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.intro_p {
+    font-family: monospace;
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 2%;
+}
+
+.intro {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    background-color: #f0f0f0;
+}
+
+.paragraph-container {
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f0f0f0;
+}
+
+.test {
+    text-align: center;
+    padding-top: 2rem;
+    color: #f0f0f0;
+    font-family: monospace;
+}
+
+.first {
+    padding-left: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
