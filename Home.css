@@ -158,6 +158,7 @@ body {
     position: relative;
     margin-bottom: 105px;
     padding-left: 2%;
+    margin-top: 105px
 }
 
 .CFR_vis {
@@ -219,4 +220,41 @@ body {
 .tri3:hover {
     fill: #1f69e0;
     opacity: 1;
+}
+
+.tooltip {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+/* Bar Chart Seasonal Flu burnden (2010-2020) */
+.bar_vis_1 {
+    padding: 3px;
+    margin-top: 20px;
+}
+
+.barchart1 {
+    /* background-color: f0f0f0; */
+    margin-top: 250px;
+    width: 100%;
+    padding-left: 30px;
+    padding-top: 50px;
+    background-color: #f0f0f0;
+}
+
+.my_dataviz1 {
+    width: 100%;
+    position: relative;
+}
+
+#tooltip-container {
+    position: absolute;
+    background-color: white;
+    padding: 0px 15px 0px 15px;
+    display: none;
+    border: 1px solid #555;
+}
+
+#tooltip-text {
+    font-weight: bold;
 }
