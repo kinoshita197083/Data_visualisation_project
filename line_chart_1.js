@@ -263,11 +263,11 @@ var svg2 = d3.select("#lineChart1")
         "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_project/master/US_COVID.csv",
+d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_project/master/US_COVID_DVP1.csv",
 
     // When reading the csv, I must format variables:
     function (d) {
-        return { date: d3.timeParse("%Y-%m-%d")(d.date), icu_patients: d.icu_patients }
+        return { date: d3.timeParse("%Y-%m-%d")(d.date), new_cases: d.new_cases }
     },
 
     // Now I can use this dataset:
@@ -283,7 +283,7 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
 
         // Add Y axis
         var y = d3.scaleLinear()
-            .domain([0, d3.max(data, function (d) { return +d.icu_patients; })])
+            .domain([0, d3.max(data, function (d) { return +d.new_cases; })])
             .range([height2, 0]);
         yAxis = svg2.append("g")
             .call(d3.axisLeft(y));
@@ -315,7 +315,7 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
             .attr("stroke-width", 1.5)
             .attr("d", d3.line()
                 .x(function (d) { return x(d.date) })
-                .y(function (d) { return y(d.icu_patients) })
+                .y(function (d) { return y(d.new_cases) })
             )
 
         // Add the brushing
@@ -351,7 +351,7 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
                 .duration(1000)
                 .attr("d", d3.line()
                     .x(function (d) { return x(d.date) })
-                    .y(function (d) { return y(d.icu_patients) })
+                    .y(function (d) { return y(d.new_cases) })
                 )
         }
 
@@ -364,7 +364,7 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
                 .transition()
                 .attr("d", d3.line()
                     .x(function (d) { return x(d.date) })
-                    .y(function (d) { return y(d.icu_patients) })
+                    .y(function (d) { return y(d.new_cases) })
                 )
         });
 
