@@ -258,3 +258,8 @@ body {
 #tooltip-text {
     font-weight: bold;
 }
+
+.linechart1 {
+    padding: 40px;
+    background-color: #f0f0f0;
+}

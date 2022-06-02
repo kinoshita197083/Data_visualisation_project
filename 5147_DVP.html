@@ -185,41 +185,57 @@
 
         <!-- Reserve a div to contain the barchart -->
         <div id="my_dataviz" class="my_dataviz1"></div>
-        <!-- <div id="tooltip-container">
-            <p id="tooltip-text">Tooltip text goes here.</p>
-        </div> -->
     </div>
 
 
+    <!-- Reference: https://d3-graph-gallery.com/graph/line_cursor.html -->
+
+    <div class="linechart1">
+        <h1 class="CFR_h1">Coincidence?</h1>
+        <p class="CFR_p">The visualization revealed a similar degree of fluctuating patterns in all ‘Symptomatic
+            Illness’, ‘Medical Visit’ and ‘Hospitalization’ with a commonality of a notable plummeting following by the
+            first debuting of the disease. This also happened to match with current COVID-19 patterns, which is shown as
+            the following.</p>
+        <p class="CFR_p">Inferring based on this theoretical thought, COVID-19 will be very likely to have a significant
+            bounce back in the upcoming year and will thereafter be fluctuating at a certain level existing just like a
+            seasonal and flu-like infectious disease.</p>
+
+        <!-- Create a div where the graph will take place -->
+        <br><br>
+        <div id="lineChart1"></div>
+    </div>
 
 </body>
 
+<script src="bar_chart_1.js"></script>
+
+<script src="Home.js"></script>
 <script>
     //Fetch all tooltips
     var tooltip1 = document.getElementById('tooltip1');
     var tooltip2 = document.getElementById('tooltip2');
     var tooltip3 = document.getElementById('tooltip3');
 
-    //Display Tooltip
-    function showTooltip(evt) {
-        if (evt.path[0] == tri1) {
-            tooltip1.setAttributeNS(null, "display", "block");
-        }
-        else if (evt.path[0] == tri2) {
-            tooltip2.setAttributeNS(null, "display", "block");
-        }
-        else {
-            tooltip3.setAttributeNS(null, "display", "block");
-        }
-        console.log(evt)
-    }
+    // //Display Tooltip
+    // function showTooltip(evt) {
+    //     if (evt.path[0] == tri1) {
+    //         tooltip1.setAttributeNS(null, "display", "block");
+    //     }
+    //     else if (evt.path[0] == tri2) {
+    //         tooltip2.setAttributeNS(null, "display", "block");
+    //     }
+    //     else {
+    //         tooltip3.setAttributeNS(null, "display", "block");
+    //     }
+    //     console.log(evt)
+    // }
 
-    //Hide Tooltip
-    function hideTooltip() {
-        tooltip1.setAttributeNS(null, "display", "none");
-        tooltip2.setAttributeNS(null, "display", "none");
-        tooltip3.setAttributeNS(null, "display", "none");
-    }
+    // //Hide Tooltip
+    // function hideTooltip() {
+    //     tooltip1.setAttributeNS(null, "display", "none");
+    //     tooltip2.setAttributeNS(null, "display", "none");
+    //     tooltip3.setAttributeNS(null, "display", "none");
+    // }
 
     //Fetch all triangles
     var tri1 = document.getElementById("tri1");
@@ -235,118 +251,10 @@
     tri3.addEventListener('mousemove', showTooltip);
     tri3.addEventListener('mouseout', hideTooltip);
 
-
-
-
-    //Bar Chart
-    // set the dimensions and margins of the graph
-    var margin = { top: 30, right: 30, bottom: 70, left: 60 },
-        width = 920 - margin.left - margin.right,
-        height = 600 - margin.top - margin.bottom;
-
-    // append the svg object to the body of the page
-    var svg = d3.select("#my_dataviz")
-        .append("svg")
-        .attr("width", 1000 + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
-
-    // Initialize the X axis
-    var x = d3.scaleBand()
-        .range([0, width])
-        .padding(0.2);
-    var xAxis = svg.append("g")
-        .attr("transform", "translate(0," + height + ")")
-
-    // Initialize the Y axis
-    var y = d3.scaleLinear()
-        .range([height, 0]);
-    var yAxis = svg.append("g")
-        .attr("class", "myYaxis")
-
-    svg.attr("transform", "translate(80, 50)")
-
-
-    // A function that create / update the plot for a given variable:
-    function update(selectedVar) {
-
-        // Parse the Data
-        d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_project/master/Flu_season_data_9years.csv", function (data) {
-
-            // X axis
-            x.domain(data.map(function (d) { return d.Season; }))
-            xAxis.transition().duration(1000).call(d3.axisBottom(x));
-
-            // Add Y axis
-            y.domain([0, d3.max(data, function (d) { return +d[selectedVar] })]);
-            yAxis.transition().duration(1000).call(d3.axisLeft(y));
-
-            // variable u: map data to existing bars
-            var u = svg.selectAll("rect")
-                .data(data)
-
-
-
-            //Create a tooltip
-            var tooltip = d3.select("#my_dataviz")
-                .append("div")
-                .style("opacity", 0)
-                .attr("class", "tooltip")
-                .style("background-color", "white")
-                .style("border", "solid")
-                .style("border-width", "1px")
-                .style("border-radius", "5px")
-                .style("padding", "10px")
-                .style("width", "120px")
-
-            // Three function that change the tooltip when user hover / move / leave a cell
-            var mouseover = function (d) {
-                var value = d[selectedVar];
-
-                tooltip
-                    .html("Value: " + value)
-                    .style("opacity", 1);
-                d3
-                    .select(this).style("fill", "black");
-            }
-            var mousemove = function (d) {
-                tooltip
-                    .style("left", d3.mouse(this)[0] + 400 + "px")
-                    .style("top", d3.mouse(this)[1] + "px");
-
-            }
-            var mouseleave = function (d) {
-                tooltip
-                    .style("opacity", 0)
-                d3
-                    .select(this).style("fill", "#98AFC7");
-            }
-
-            // update bars
-            u
-                .enter()
-                .append("rect")
-                .merge(u)
-                .transition()
-                .duration(1000)
-                .attr("x", function (d) { return x(d.Season); })
-                .attr("y", function (d) { return y(d[selectedVar]); })
-                .attr("width", x.bandwidth())
-                .attr("height", function (d) { return height - y(d[selectedVar]); })
-                .attr("fill", "#98AFC7")
-
-            u
-                .on("mouseover", mouseover)
-                .on("mousemove", mousemove)
-                .on("mouseleave", mouseleave)
-        })
-
-    }
-
-    // Initialize plot
-    update('Symptomatic')
+    //Initiate the bar_chart visualisation by updating 'symptomatic' as default
+    update('Symptomatic')  
 </script>
+
+<script src="line_chart_1.js"></script>
 
 </html>
