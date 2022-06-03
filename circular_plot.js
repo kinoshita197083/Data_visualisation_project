@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 var margin = { top: 100, right: 0, bottom: 0, left: 0 },
-    width = 460 - margin.left - margin.right,
-    height = 460 - margin.top - margin.bottom,
+    width = 700 - margin.left - margin.right,
+    height = 560 - margin.top - margin.bottom,
     innerRadius = 90,
     outerRadius = Math.min(width, height) / 2;   // the outerRadius goes from the middle of the SVG area to the border
 
@@ -30,10 +30,10 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
         .data(data)
         .enter()
         .append("path")
-        .attr("fill", "#69b3a2")
+        .attr("fill", "#4863A0")
         .attr("d", d3.arc()     // imagine your doing a part of a donut plot
             .innerRadius(innerRadius)
-            .outerRadius(function (d) { return y(d['Death/Million(AVG)']); })
+            .outerRadius(function (d) { return y(d['Death/Million(AVG)'] * 380); })
             .startAngle(function (d) { return x(d.FluType); })
             .endAngle(function (d) { return x(d.FluType) + x.bandwidth(); })
             .padAngle(0.01)
