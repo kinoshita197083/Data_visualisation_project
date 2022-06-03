@@ -263,3 +263,188 @@ body {
     padding: 40px;
     background-color: #f0f0f0;
 }
+
+/* Map */
+
+.map_div {
+    background-color: #f0f0f0;
+    padding-bottom: 50px;
+}
+
+
+
+
+
+
+
+/* Circular_plot */
+.range-container {
+    position: relative;
+}
+
+input[type=range] {
+    width: 300px;
+    margin: 18px 0;
+    -webkit-appearance: none;
+}
+
+input[type=range]+label {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    padding: 5px 0;
+    position: absolute;
+    top: -25px;
+    left: 110px;
+    text-align: center;
+    width: 80px;
+}
+
+input[type=range]:active {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background-color: lightcoral;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    height: 7.5px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    background: #ffffff;
+    border-radius: 50%;
+    border: 1px solid lightcoral;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin-top: -7px;
+    -webkit-appearance: none;
+}
+
+input[type=range]:active::-webkit-slider-runnable-track {
+    opacity: 0.8;
+}
+
+input[type=range]::-moz-range-track {
+    background-color: lightcoral;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    height: 7.5px;
+}
+
+input[type=range]::-moz-range-thumb {
+    background: #ffffff;
+    border-radius: 50%;
+    border: 1px solid lightcoral;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+}
+
+input[type=range]::-ms-track {
+    background-color: lightcoral;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    height: 7.5px;
+}
+
+input[type=range]::-ms-thumb {
+    background: #ffffff;
+    border-radius: 50%;
+    border: 1px solid lightcoral;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+input[type=range]:active::-ms-fill-lower {
+    background: lightcoral;
+}
+
+input[type=range]:active::-ms-fill-upper {
+    background: lightcoral;
+}
+
+
+/* play button */
+
+#play-button {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    background: #f08080;
+    padding-right: 26px;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    margin: 0;
+    padding: 0 12px;
+    width: 60px;
+    cursor: pointer;
+    height: 30px;
+}
+
+#play-button:hover {
+    background-color: #696969;
+}
+
+#pause-button {
+    position: absolute;
+    top: 60px;
+    left: 150px;
+    background: #f08080;
+    padding-right: 26px;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    margin: 0;
+    padding: 0 12px;
+    width: 60px;
+    cursor: pointer;
+    height: 30px;
+}
+
+#pause-button:hover {
+    background-color: #696969;
+}
+
+.ticks {
+    font-size: 10px;
+}
+
+.track,
+.track-inset,
+.track-overlay {
+    stroke-linecap: round;
+}
+
+.track {
+    stroke: #000;
+    stroke-opacity: 0.3;
+    stroke-width: 10px;
+}
+
+.track-inset {
+    stroke: #dcdcdc;
+    stroke-width: 8px;
+}
+
+.track-overlay {
+    pointer-events: stroke;
+    stroke-width: 50px;
+    stroke: transparent;
+    cursor: crosshair;
+}
+
+.handle {
+    fill: #fff;
+    stroke: #000;
+    stroke-opacity: 0.5;
+    stroke-width: 1.25px;
+}
