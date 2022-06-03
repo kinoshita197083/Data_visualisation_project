@@ -13,7 +13,7 @@ var svg_circular = d3.select("#circular_plot")
     .append("g")
     .attr("transform", "translate(" + (width / 2 + margin.left) + "," + (height / 2 + margin.top) + ")");
 
-d3.csv("Death_Toll_Flu_All_3", function (data) {
+d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_project/master/Death_Toll_Flu_All_3.csv", function (data) {
 
     // Scales
     var x = d3.scaleBand()
@@ -34,8 +34,8 @@ d3.csv("Death_Toll_Flu_All_3", function (data) {
         .attr("d", d3.arc()     // imagine your doing a part of a donut plot
             .innerRadius(innerRadius)
             .outerRadius(function (d) { return y(d['Death/Million(AVG)']); })
-            .startAngle(function (d) { return x(d.Flu_Type); })
-            .endAngle(function (d) { return x(d.Flu_Type) + x.bandwidth(); })
+            .startAngle(function (d) { return x(d.FluType); })
+            .endAngle(function (d) { return x(d.FluType) + x.bandwidth(); })
             .padAngle(0.01)
             .padRadius(innerRadius))
 
