@@ -13,14 +13,13 @@ var projection = d3.geoMercator()
 // Data and color scale
 var data = d3.map();
 var colorScale = d3.scaleThreshold()
-    // .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
-    .domain([1, 10, 100, 3000, 10000, 500000])
-    .range(d3.schemeBlues[3]);
+    .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
+    .range(d3.schemeReds[3]);
 
 // Load external data and boot
 d3.queue()
     .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-    .defer(d3.csv, "https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_project/master/world_population_joined.csv", function (d) { data.set(d.code, +d.new_cases); })
+    .defer(d3.csv, "https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_project/master/world_population_joined2.csv", function (d) { data.set(d.code, +d.new_cases); })
     .await(ready);
 
 function ready(error, topo) {
@@ -58,16 +57,6 @@ function ready(error, topo) {
         .attr("d", d3.geoPath()
             .projection(projection)
         )
-        // set the color of each country
-        // .attr("fill", function (d) {
-        //     d.total = data.get(d.id) || 0;
-        //     return colorScale(d.total);
-        // })
-        // .style("stroke", "transparent")
-        // .attr("class", function (d) { return "Country" })
-        // .style("opacity", .8)
-        // .on("mouseover", mouseOver)
-        // .on("mouseleave", mouseLeave)
 
         .attr("fill", function (d) {
             console.log(d)
