@@ -16,6 +16,20 @@ var colorScale = d3.scaleThreshold()
     .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
     .range(d3.schemeReds[3]);
 
+
+//Construct tooltip
+var tooltip_2 = d3.select("#map_dataviz")
+    .append("div")
+    .style("opacity", 1)
+    .attr("class", "tooltip")
+    .style("background-color", "black")
+    .style("border", "solid")
+    .style("border-width", "1px")
+    .style("border-radius", "5px")
+    .style("padding", "10px")
+    .style("width", "120px")
+// .style("position", "absolute")
+
 // Load external data and boot
 d3.queue()
     .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
@@ -33,7 +47,12 @@ function ready(error, topo) {
             .transition()
             .duration(200)
             .style("opacity", 1)
-            .style("stroke", "black")
+            .style("stroke", "black");
+
+        tooltip_2
+            // .html("Value: " + value)
+            .style("opacity", 1);
+
     }
 
     let mouseLeave = function (d) {
@@ -68,8 +87,4 @@ function ready(error, topo) {
         .style("opacity", .8)
         .on("mouseover", mouseOver)
         .on("mouseleave", mouseLeave)
-}
-
-function displayMapTip(name) {
-    document.getElementById('map_label').firstChild.data = name;
 }

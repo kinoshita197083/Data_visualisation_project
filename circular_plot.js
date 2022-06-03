@@ -13,6 +13,19 @@ var svg_circular = d3.select("#circular_plot")
     .append("g")
     .attr("transform", "translate(" + (width / 2 + margin.left) + "," + (height / 2 + margin.top) + ")");
 
+//Construct tooltip
+var tooltip_2 = d3.select("#circular_plot")
+    .append("div")
+    .style("opacity", 1)
+    .attr("class", "tooltip")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "1px")
+    .style("border-radius", "5px")
+    .style("padding", "10px")
+    .style("width", "400px")
+    .style("position", "absolute")
+
 d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_project/master/Death_Toll_Flu_All_3.csv", function (data) {
 
     // Scales
@@ -38,6 +51,9 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
             .endAngle(function (d) { return x(d.FluType) + x.bandwidth(); })
             .padAngle(0.01)
             .padRadius(innerRadius))
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
 
     // Add the labels
     svg_circular.append("g")
@@ -53,4 +69,30 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
         .style("font-size", "11px")
         .attr("alignment-baseline", "middle")
 
+    // svg_circular
+    // .on("mouseover", mouseover)
+    // .on("mousemove", mousemove)
+    // .on("mouseleave", mouseleave)
 });
+
+var mouseover = function (d) {
+    console.log(d);
+
+    tooltip_2
+        .html("Type: " + d.FluType + " Mortality: " + d.Global_mortality_rate)
+        .style("opacity", 1);
+    d3
+        .select(this).style("stroke", "white")
+}
+var mousemove = function (d) {
+    tooltip_2
+        .style("left", d3.mouse(this)[0] + 90 + "px")
+        .style("top", d3.mouse(this)[1] + 220 + "px");
+
+}
+var mouseleave = function (d) {
+    tooltip_2
+        .style("opacity", 0)
+    d3
+        .select(this).style("stroke", "#4863A0");
+}

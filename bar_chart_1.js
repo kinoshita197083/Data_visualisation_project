@@ -27,6 +27,18 @@ var yAxis2 = svg.append("g")
 
 svg.attr("transform", "translate(80, 50)")
 
+//Construct tooltip
+var tooltip = d3.select("#my_dataviz")
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "1px")
+    .style("border-radius", "5px")
+    .style("padding", "10px")
+    .style("width", "120px")
+    .style("position", "absolute")
 
 // A function that create / update the plot for a given variable:
 function update(selectedVar) {
@@ -46,18 +58,18 @@ function update(selectedVar) {
         var u = svg.selectAll("rect")
             .data(data)
 
-        //Construct tooltip
-        var tooltip = d3.select("#my_dataviz")
-            .append("div")
-            .style("opacity", 0)
-            .attr("class", "tooltip")
-            .style("background-color", "white")
-            .style("border", "solid")
-            .style("border-width", "1px")
-            .style("border-radius", "5px")
-            .style("padding", "10px")
-            .style("width", "120px")
-            .style("position", "absolute")
+        // //Construct tooltip
+        // var tooltip = d3.select("#my_dataviz")
+        //     .append("div")
+        //     .style("opacity", 0)
+        //     .attr("class", "tooltip")
+        //     .style("background-color", "white")
+        //     .style("border", "solid")
+        //     .style("border-width", "1px")
+        //     .style("border-radius", "5px")
+        //     .style("padding", "10px")
+        //     .style("width", "120px")
+        //     .style("position", "absolute")
 
         // Three function that change the tooltip when user hover / move / leave a cell
         var mouseover = function (d) {
