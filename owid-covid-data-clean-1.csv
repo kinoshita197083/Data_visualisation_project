@@ -1,243 +1,243 @@
-new_cases,icu_patients,new_deaths
-777,0,751
-790,0,790
-765,0,763
-778,569,762
-767,0,751
-754,0,744
-746,0,203
-759,0,736
-771,637,766
-773,0,747
-757,0,727
-812,0,812
-806,743,770
-778,742,757
-773,0,761
-757,0,742
-779,0,758
-766,0,756
-757,0,738
-775,0,743
-798,758,761
-751,0,735
-757,0,737
-755,0,737
-768,0,460
-763,335,745
-741,0,572
-769,0,751
-744,0,743
-775,0,757
-746,0,724
-764,0,746
-766,728,763
-764,0,756
-743,0,730
-807,0,398
-764,0,749
-808,765,762
-754,0,749
-757,0,757
-759,0,690
-755,0,715
-780,742,749
-809,0,810
-768,0,752
-713,0,706
-759,0,740
-327,0,0
-768,0,755
-762,0,745
-778,0,755
-762,0,755
-756,0,755
-764,756,749
-771,758,739
-763,0,753
-775,778,758
-756,0,733
-751,0,234
-773,0,757
-767,0,757
-788,0,765
-752,0,743
-758,0,721
-753,0,477
-776,769,747
-760,0,727
-761,0,738
-811,0,811
-811,0,811
-770,0,462
-737,0,0
-755,0,620
-800,574,761
-800,756,781
-760,0,579
-760,0,754
-756,0,751
-777,0,739
-806,754,762
-760,0,753
-766,0,518
-777,0,763
-757,0,106
-751,0,465
-0,0,0
-760,0,757
-0,0,0
-761,0,728
-749,0,717
-761,0,762
-754,0,730
-812,0,812
-762,0,746
-809,0,799
-770,0,759
-774,56,752
-803,0,760
-772,0,763
-796,0,783
-784,0,784
-779,0,770
-770,737,756
-749,0,742
-779,589,750
-802,779,781
-763,0,755
-811,101,790
-0,0,0
-769,0,747
-760,0,746
-761,0,748
-329,0,63
-760,0,751
-779,0,739
-756,0,739
-750,0,338
-772,65,740
-782,0,764
-700,0,643
-755,0,738
-750,0,740
-768,0,739
-774,0,748
-780,0,780
-812,0,812
-773,770,759
-811,0,0
-753,0,696
-741,0,736
-809,750,757
-765,0,714
-749,0,745
-766,678,734
-531,0,0
-759,0,744
-751,0,749
-775,0,753
-447,0,0
-766,0,755
-773,0,744
-763,0,470
-757,0,750
-756,0,718
-772,0,764
-751,0,687
-747,0,742
-760,0,641
-0,0,0
-808,0,697
-776,774,764
-754,0,215
-771,0,745
-755,0,747
-753,0,749
-775,0,750
-0,0,0
-812,0,812
-777,0,752
-0,0,0
-0,0,0
-777,0,751
-809,0,809
-779,0,743
-778,0,756
-234,0,61
-769,0,748
-764,0,763
-753,0,623
-766,0,754
-768,0,766
-802,0,800
-0,0,0
-770,0,762
-771,734,757
-0,0,0
-774,0,746
-777,729,752
-803,0,755
-760,0,683
-583,0,0
-749,0,300
-760,0,519
-737,0,71
-759,0,453
-511,0,12
-774,0,774
-736,0,711
-772,0,750
-772,0,741
-768,741,753
-756,0,463
-743,0,720
-811,0,753
-0,0,0
-768,754,742
-769,755,760
-547,0,77
-758,0,734
-768,103,745
-781,0,781
-811,745,783
-738,0,698
-794,619,763
-807,0,746
-759,0,760
-760,0,740
-797,744,752
-778,743,753
-752,0,745
-809,0,787
-712,0,710
-758,0,743
-809,0,770
-751,0,372
-768,0,747
-0,0,0
-166,0,32
-760,0,749
-770,0,755
-762,0,757
-0,0,0
-745,0,738
-0,0,0
-751,0,627
-771,0,761
-805,0,754
-800,740,766
-811,635,774
-0,0,0
-812,0,812
-760,0,746
-759,0,747
-519,0,357
-768,0,0
-760,0,746
-811,0,619
-541,0,388
-812,0,812
-732,0,713
-755,0,741
-753,0,751
+location,new_cases,icu_patients,new_deaths
+Afghanistan,777,0,751
+Africa,790,0,790
+Albania,765,0,763
+Algeria,778,569,762
+Andorra,767,0,751
+Angola,754,0,744
+Anguilla,746,0,203
+Antigua and Barbuda,759,0,736
+Argentina,771,637,766
+Armenia,773,0,747
+Aruba,757,0,727
+Asia,812,0,812
+Australia,806,743,770
+Austria,778,742,757
+Azerbaijan,773,0,761
+Bahamas,757,0,742
+Bahrain,779,0,758
+Bangladesh,766,0,756
+Barbados,757,0,738
+Belarus,775,0,743
+Belgium,798,758,761
+Belize,751,0,735
+Benin,757,0,737
+Bermuda,755,0,737
+Bhutan,768,0,460
+Bolivia,763,335,745
+Bonaire Sint Eustatius and Saba,741,0,572
+Bosnia and Herzegovina,769,0,751
+Botswana,744,0,743
+Brazil,775,0,757
+British Virgin Islands,746,0,724
+Brunei,764,0,746
+Bulgaria,766,728,763
+Burkina Faso,764,0,756
+Burundi,743,0,730
+Cambodia,807,0,398
+Cameroon,764,0,749
+Canada,808,765,762
+Cape Verde,754,0,749
+Cayman Islands,757,0,757
+Central African Republic,759,0,690
+Chad,755,0,715
+Chile,780,742,749
+China,809,0,810
+Colombia,768,0,752
+Comoros,713,0,706
+Congo,759,0,740
+Cook Islands,327,0,0
+Costa Rica,768,0,755
+Cote d'Ivoire,762,0,745
+Croatia,778,0,755
+Cuba,762,0,755
+Curacao,756,0,755
+Cyprus,764,756,749
+Czechia,771,758,739
+Democratic Republic of Congo,763,0,753
+Denmark,775,778,758
+Djibouti,756,0,733
+Dominica,751,0,234
+Dominican Republic,773,0,757
+Ecuador,767,0,757
+Egypt,788,0,765
+El Salvador,752,0,743
+Equatorial Guinea,758,0,721
+Eritrea,753,0,477
+Estonia,776,769,747
+Eswatini,760,0,727
+Ethiopia,761,0,738
+Europe,811,0,811
+European Union,811,0,811
+Faeroe Islands,770,0,462
+Falkland Islands,737,0,0
+Fiji,755,0,620
+Finland,800,574,761
+France,800,756,781
+French Polynesia,760,0,579
+Gabon,760,0,754
+Gambia,756,0,751
+Georgia,777,0,739
+Germany,806,754,762
+Ghana,760,0,753
+Gibraltar,766,0,518
+Greece,777,0,763
+Greenland,757,0,106
+Grenada,751,0,465
+Guam,0,0,0
+Guatemala,760,0,757
+Guernsey,0,0,0
+Guinea,761,0,728
+Guinea-Bissau,749,0,717
+Guyana,761,0,762
+Haiti,754,0,730
+High income,812,0,812
+Honduras,762,0,746
+Hong Kong,809,0,799
+Hungary,770,0,759
+Iceland,774,56,752
+India,803,0,760
+Indonesia,772,0,763
+International,796,0,783
+Iran,784,0,784
+Iraq,779,0,770
+Ireland,770,737,756
+Isle of Man,749,0,742
+Israel,779,589,750
+Italy,802,779,781
+Jamaica,763,0,755
+Japan,811,101,790
+Jersey,0,0,0
+Jordan,769,0,747
+Kazakhstan,760,0,746
+Kenya,761,0,748
+Kiribati,329,0,63
+Kosovo,760,0,751
+Kuwait,779,0,739
+Kyrgyzstan,756,0,739
+Laos,750,0,338
+Latvia,772,65,740
+Lebanon,782,0,764
+Lesotho,700,0,643
+Liberia,755,0,738
+Libya,750,0,740
+Liechtenstein,768,0,739
+Lithuania,774,0,748
+Low income,780,0,780
+Lower middle income,812,0,812
+Luxembourg,773,770,759
+Macao,811,0,0
+Madagascar,753,0,696
+Malawi,741,0,736
+Malaysia,809,750,757
+Maldives,765,0,714
+Mali,749,0,745
+Malta,766,678,734
+Marshall Islands,531,0,0
+Mauritania,759,0,744
+Mauritius,751,0,749
+Mexico,775,0,753
+Micronesia (country),447,0,0
+Moldova,766,0,755
+Monaco,773,0,744
+Mongolia,763,0,470
+Montenegro,757,0,750
+Montserrat,756,0,718
+Morocco,772,0,764
+Mozambique,751,0,687
+Myanmar,747,0,742
+Namibia,760,0,641
+Nauru,0,0,0
+Nepal,808,0,697
+Netherlands,776,774,764
+New Caledonia,754,0,215
+New Zealand,771,0,745
+Nicaragua,755,0,747
+Niger,753,0,749
+Nigeria,775,0,750
+Niue,0,0,0
+North America,812,0,812
+North Macedonia,777,0,752
+Northern Cyprus,0,0,0
+Northern Mariana Islands,0,0,0
+Norway,777,0,751
+Oceania,809,0,809
+Oman,779,0,743
+Pakistan,778,0,756
+Palau,234,0,61
+Palestine,769,0,748
+Panama,764,0,763
+Papua New Guinea,753,0,623
+Paraguay,766,0,754
+Peru,768,0,766
+Philippines,802,0,800
+Pitcairn,0,0,0
+Poland,770,0,762
+Portugal,771,734,757
+Puerto Rico,0,0,0
+Qatar,774,0,746
+Romania,777,729,752
+Russia,803,0,755
+Rwanda,760,0,683
+Saint Helena,583,0,0
+Saint Kitts and Nevis,749,0,300
+Saint Lucia,760,0,519
+Saint Pierre and Miquelon,737,0,71
+Saint Vincent and the Grenadines,759,0,453
+Samoa,511,0,12
+San Marino,774,0,774
+Sao Tome and Principe,736,0,711
+Saudi Arabia,772,0,750
+Senegal,772,0,741
+Serbia,768,741,753
+Seychelles,756,0,463
+Sierra Leone,743,0,720
+Singapore,811,0,753
+Sint Maarten (Dutch part),0,0,0
+Slovakia,768,754,742
+Slovenia,769,755,760
+Solomon Islands,547,0,77
+Somalia,758,0,734
+South Africa,768,103,745
+South America,781,0,781
+South Korea,811,745,783
+South Sudan,738,0,698
+Spain,794,619,763
+Sri Lanka,807,0,746
+Sudan,759,0,760
+Suriname,760,0,740
+Sweden,797,744,752
+Switzerland,778,743,753
+Syria,752,0,745
+Taiwan,809,0,787
+Tajikistan,712,0,710
+Tanzania,758,0,743
+Thailand,809,0,770
+Timor,751,0,372
+Togo,768,0,747
+Tokelau,0,0,0
+Tonga,166,0,32
+Trinidad and Tobago,760,0,749
+Tunisia,770,0,755
+Turkey,762,0,757
+Turkmenistan,0,0,0
+Turks and Caicos Islands,745,0,738
+Tuvalu,0,0,0
+Uganda,751,0,627
+Ukraine,771,0,761
+United Arab Emirates,805,0,754
+United Kingdom,800,740,766
+United States,811,635,774
+United States Virgin Islands,0,0,0
+Upper middle income,812,0,812
+Uruguay,760,0,746
+Uzbekistan,759,0,747
+Vanuatu,519,0,357
+Vatican,768,0,0
+Venezuela,760,0,746
+Vietnam,811,0,619
+Wallis and Futuna,541,0,388
+World,812,0,812
+Yemen,732,0,713
+Zambia,755,0,741
+Zimbabwe,753,0,751
