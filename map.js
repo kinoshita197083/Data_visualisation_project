@@ -16,12 +16,6 @@ var colorScale = d3.scaleThreshold()
     .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
     .range(d3.schemeReds[3]);
 
-
-//Construct tooltip
-// var tooltip_3 = d3.select("#map_div")
-//     .append("div")
-
-
 var tooltip_3 = d3.select("#map_label")
     .style("opacity", 0)
     .attr("class", "tooltip")

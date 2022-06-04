@@ -30,12 +30,12 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
 
     // Scales
     var x = d3.scaleBand()
-        .range([0, 2 * Math.PI])    // X axis goes from 0 to 2pi = all around the circle. If I stop at 1Pi, it will be around a half circle
+        .range([0, 2 * Math.PI])    // X-axis from 0 to 2pi = all around the circle. If I stop at 1Pi, it will be around a half circle
         .align(0)                  // This does nothing
-        .domain(data.map(function (d) { return d.FluType; })); // The domain of the X axis is the list of states.
+        .domain(data.map(function (d) { return d.FluType; })); // Domain of X-axis = the list of states.
     var y = d3.scaleRadial()
-        .range([innerRadius, outerRadius])   // Domain will be define later.
-        .domain([0, 14000]); // Domain of Y is from 0 to the max seen in the data
+        .range([innerRadius, outerRadius])   // Come back for the domain later
+        .domain([0, 14000]); // Domain (Y): from 0 to the max seen in the data
 
     // Add the bars
     svg_circular.append("g")
@@ -44,7 +44,7 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
         .enter()
         .append("path")
         .attr("fill", "#4863A0")
-        .attr("d", d3.arc()     // imagine your doing a part of a donut plot
+        .attr("d", d3.arc()
             .innerRadius(innerRadius)
             .outerRadius(function (d) { return y(d['Death/Million(AVG)'] * 380); })
             .startAngle(function (d) { return x(d.FluType); })

@@ -1,9 +1,9 @@
-// set the dimensions and margins of the graph
+// Define the dimensions and margins
 var margin = { top: 10, right: 30, bottom: 30, left: 60 },
     width2 = 890 - margin.left - margin.right,
     height2 = 600 - margin.top - margin.bottom;
 
-// append the svg object to the body of the page
+// Append the svg object to the <body>
 var svg2 = d3.select("#lineChart1")
     .append("svg")
     .attr("width", width2 + margin.left + margin.right)
@@ -15,15 +15,15 @@ var svg2 = d3.select("#lineChart1")
 //Read the data
 d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_project/master/US_COVID_DVP1.csv",
 
-    // When reading the csv, I must format variables:
+    // Formatting variables during csv loading:
     function (d) {
         return { date: d3.timeParse("%Y-%m-%d")(d.date), new_cases: d.new_cases, icu_patients: d.icu_patients }
     },
 
-    // Now I can use this dataset:
+    // Using this dataset:
     function (data) {
 
-        // Add X axis 
+        // Add X-axis 
         var x = d3.scaleTime()
             .domain(d3.extent(data, function (d) { return d.date; }))
             .range([0, width2]);
@@ -31,7 +31,7 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
             .attr("transform", "translate(0," + height2 + ")")
             .call(d3.axisBottom(x));
 
-        // Add 2nd X axis
+        // Add X-axis for the overlapping line graph
         var x_2 = d3.scaleTime()
             .domain(d3.extent(data, function (d) { return d.date; }))
             .range([0, width2]);
@@ -40,7 +40,7 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
             .call(d3.axisBottom(x_2));
 
 
-        // Add Y axis
+        // Add Y-axis
         var y = d3.scaleLinear()
             .domain([0, d3.max(data, function (d) { return +d.new_cases; })])
             .range([height2, 0]);
@@ -48,7 +48,7 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
             .call(d3.axisLeft(y));
 
 
-        // Add 2nd Y axis
+        // Add Y-axis for the overlapping line graph
         var y_2 = d3.scaleLinear()
             .domain([0, d3.max(data, function (d) { return +d.icu_patients; })])
             .range([height2, 0]);
@@ -66,12 +66,12 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
             .attr("y", 0);
 
         // Add brushing
-        var brush = d3.brushX()                   // Add the brush feature using the d3.brush function
-            .extent([[0, 0], [width2, height2]])  // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+        var brush = d3.brushX()                   // Add the brush feature
+            .extent([[0, 0], [width2, height2]])  // Initialising the brush area
             .on("end", updateChart)               // Each time the brush selection changes, trigger the 'updateChart' function
 
-        var brush_2 = d3.brushX()                   // Add the brush feature using the d3.brush function
-            .extent([[0, 0], [width2, height2]])  // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+        var brush_2 = d3.brushX()                   // Add the brush feature, same as the first one, for testing purpose
+            .extent([[0, 0], [width2, height2]])  // initialise the brush area
             .on("end", updateChart)
 
 
@@ -79,14 +79,15 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
         var line = svg2.append('g')
             .attr("clip-path", "url(#clip)")
 
+        // Now the 2nd line
         var line_2 = svg2.append('g')
             .attr("clip-path", "url(#clip)")
 
 
-        // Add the line
+        // Add the 1st line
         line.append("path")
             .datum(data)
-            .attr("class", "line")  // I add the class line to be able to modify this line later on.
+            .attr("class", "line")  // For later modifying purpose
             .attr("fill", "none")
             .attr("stroke", "steelblue")
             .attr("stroke-width", 1.5)
@@ -96,10 +97,10 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
             )
 
 
-        //Add 2nd line
+        //Add the 2nd line
         line_2.append("path")
             .datum(data)
-            .attr("class", "line_2")  // I add the class line to be able to modify this line later on.
+            .attr("class", "line_2")  // For later modifying purpose
             .attr("fill", "none")
             .attr("stroke", "orange")
             .attr("stroke-width", 1.5)
@@ -122,14 +123,14 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
             .call(brush_2);
 
 
-        // A function that set idleTimeOut to null
+        // Set idleTimeOut to null
         var idleTimeout
         function idled() { idleTimeout = null; }
 
-        // A function that update the chart for given boundaries
+        // Update the chart for given boundaries
         function updateChart() {
 
-            // What are the selected boundaries?
+            // Store the selected boundaries?
             extent = d3.event.selection
 
             // If no selection, back to initial coordinate. Otherwise, update X axis domain
@@ -140,7 +141,7 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
             } else {
                 x.domain([x.invert(extent[0]), x.invert(extent[1])])
                 x_2.domain([x_2.invert(extent[0]), x_2.invert(extent[1])])
-                line.select(".brush").call(brush.move, null) // This remove the grey brush area as soon as the selection has been done
+                line.select(".brush").call(brush.move, null)
                 line_2.select(".brush").call(brush.move, null)
             }
 
@@ -167,7 +168,7 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
                 )
         }
 
-        // If user double click, reinitialize the chart
+        // Double click, reinitialize the chart
         svg2.on("dblclick", function () {
             x.domain(d3.extent(data, function (d) { return d.date; }))
             xAxis.transition().call(d3.axisBottom(x))
