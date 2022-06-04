@@ -18,17 +18,20 @@ var colorScale = d3.scaleThreshold()
 
 
 //Construct tooltip
-var tooltip_2 = d3.select("#map_dataviz")
-    .append("div")
-    .style("opacity", 1)
+// var tooltip_3 = d3.select("#map_div")
+//     .append("div")
+
+
+var tooltip_3 = d3.select("#map_label")
+    .style("opacity", 0)
     .attr("class", "tooltip")
-    .style("background-color", "black")
+    .style("background-color", "white")
     .style("border", "solid")
     .style("border-width", "1px")
     .style("border-radius", "5px")
     .style("padding", "10px")
     .style("width", "120px")
-// .style("position", "absolute")
+    .style("position", "absolute");
 
 // Load external data and boot
 d3.queue()
@@ -38,7 +41,7 @@ d3.queue()
 
 function ready(error, topo) {
 
-    let mouseOver = function (d) {
+    var mouseOver = function (d) {
         d3.selectAll(".Country")
             .transition()
             .duration(200)
@@ -49,13 +52,15 @@ function ready(error, topo) {
             .style("opacity", 1)
             .style("stroke", "black");
 
-        tooltip_2
-            // .html("Value: " + value)
+        tooltip_3
+            .html("Country: " + d.properties.name + "<br> Cases: " + d.total)
             .style("opacity", 1);
+
+        console.log(d)
 
     }
 
-    let mouseLeave = function (d) {
+    var mouseLeave = function (d) {
         d3.selectAll(".Country")
             .transition()
             .duration(200)
@@ -63,7 +68,17 @@ function ready(error, topo) {
         d3.select(this)
             .transition()
             .duration(200)
-            .style("stroke", "transparent")
+            .style("stroke", "transparent");
+
+        tooltip_3
+            .style("opacity", 0)
+    }
+
+    var mousemove = function (d) {
+        tooltip_3
+            .style("left", d3.mouse(this)[0] + 50 + "px")
+            .style("top", d3.mouse(this)[1] + "px");
+
     }
 
     // Draw the map
@@ -87,4 +102,5 @@ function ready(error, topo) {
         .style("opacity", .8)
         .on("mouseover", mouseOver)
         .on("mouseleave", mouseLeave)
+        .on("mousemove", mousemove)
 }

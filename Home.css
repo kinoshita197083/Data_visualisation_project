@@ -132,6 +132,7 @@ body {
     padding-top: 2rem;
     padding-bottom: 1rem;
     background-color: #f0f0f0;
+    margin: 0%
 }
 
 .paragraph-container {
@@ -236,7 +237,7 @@ body {
 .barchart1 {
     /* background-color: f0f0f0; */
     margin-top: 250px;
-    width: 100%;
+    /* width: 100%; */
     padding-left: 30px;
     padding-top: 50px;
     background-color: #f0f0f0;
@@ -262,6 +263,7 @@ body {
 .linechart1 {
     padding: 40px;
     background-color: #f0f0f0;
+    /* width: 100%; */
 }
 
 /* Map */
@@ -269,6 +271,12 @@ body {
 .map_div {
     background-color: #f0f0f0;
     padding-bottom: 50px;
+    position: relative;
+}
+
+.circular_plot_div {
+    padding: 30px;
+    margin-top: 30px;
 }
 
 #circular_plot {

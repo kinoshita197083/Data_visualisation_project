@@ -48,9 +48,19 @@
 
     <!-- Reference: https://d3-graph-gallery.com/graph/choropleth_hover_effect.html -->
     <div class="map_div">
+        <h1 class="CFR_h1" style="padding-left: 40%;">Global Situation</h1>
+        <p class="CFR_p" style="padding-top: 2%; padding-left: 60%; width: 30%; position: absolute;">Globally, there
+            have been more than 600 million of confirmed cases of COVID-19, which has been declared as a pandemic on 11
+            March 2020 by World Health Organisation (WHO). After more than a decade from the H1N1 Swine Flu (2009), last
+            global pandemic, ordinary
+            people, and especially, politicians often make comparisons of two
+        </p>
         <!-- Create an element where the map will take place -->
-        <svg id="map_dataviz" width="800" height="500"></svg>
-        <text class="map_tooltip" id="map_label" x="10" y="390"> </text>
+        <div class="map_wrapper" style="position:relative">
+            <svg id="map_dataviz" width="800" height="500"></svg>
+            <div class="map_tooltip" id="map_label" x="10" y="390"> </div>
+        </div>
+
     </div>
 
     <script src="map.js"></script>
@@ -62,6 +72,17 @@
     <!-- Create a div where the graph will take place -->
 
     <div class="circular_plot_div">
+        <h1 class="CFR_h1">Crude Mortality Rate Comparison between Flu</h1>
+        <p class="CFR_p">Before diving deep, the following circular plot represents a comparison between some historical
+            well-known influenzas in terms of crude mortality rate, intending to provide a brief impression of how many
+            populations had been killed by these infectious diseases. The saturation of coloring indicates crude
+            mortality rate. With this approach, COVID-19 appeared to be far worse than the last pandemic - H1N1 swine
+            flu in 2009.
+        </p>
+        <p class="CFR_p">For those such as Spanish flu and Asian flu, the exact number is unknown. Multiple datasets
+            have been included estimating by different researchers corresponding with different statistical techniques
+            (Hannah et
+            al., 2020).</p>
         <div id="circular_plot"></div>
     </div>
 
@@ -105,14 +126,9 @@
         </div>
     </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <br><br><br><br><br><br><br><br>
+
+
     <!-- Reference: https://d3-graph-gallery.com/graph/barplot_button_data_csv.html -->
 
     <div class="barchart1">

@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 var margin = { top: 100, right: 0, bottom: 0, left: 0 },
     width = 700 - margin.left - margin.right,
-    height = 560 - margin.top - margin.bottom,
+    height = 660 - margin.top - margin.bottom,
     innerRadius = 90,
     outerRadius = Math.min(width, height) / 2;   // the outerRadius goes from the middle of the SVG area to the border
 
@@ -16,7 +16,7 @@ var svg_circular = d3.select("#circular_plot")
 //Construct tooltip
 var tooltip_2 = d3.select("#circular_plot")
     .append("div")
-    .style("opacity", 1)
+    .style("opacity", 0)
     .attr("class", "tooltip")
     .style("background-color", "white")
     .style("border", "solid")
@@ -69,10 +69,6 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
         .style("font-size", "11px")
         .attr("alignment-baseline", "middle")
 
-    // svg_circular
-    // .on("mouseover", mouseover)
-    // .on("mousemove", mousemove)
-    // .on("mouseleave", mouseleave)
 });
 
 var mouseover = function (d) {
@@ -87,7 +83,7 @@ var mouseover = function (d) {
 var mousemove = function (d) {
     tooltip_2
         .style("left", d3.mouse(this)[0] + 90 + "px")
-        .style("top", d3.mouse(this)[1] + 220 + "px");
+        .style("top", d3.mouse(this)[1] + 270 + "px");
 
 }
 var mouseleave = function (d) {
