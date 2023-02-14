@@ -3,10 +3,17 @@ var margin = { top: 30, right: 30, bottom: 70, left: 60 },
     width = 920 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
+
+if (window.innerWidth < 800) {
+    width = 270,
+        height = 300;
+    console.log(window.innerWidth);
+}
+
 // Append the svg object to the <body>
-var svg = d3.select("#my_dataviz")
+var svg = d3.select("#bar-chart")
     .append("svg")
-    .attr("width", 1000 + margin.left + margin.right)
+    .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform",
@@ -21,14 +28,14 @@ var xAxis2 = svg.append("g")
 
 // Initialise the Y-axis
 var y2 = d3.scaleLinear()
-    .range([height, 0]);
+    .range([height, 10]);
 var yAxis2 = svg.append("g")
     .attr("class", "myYaxis")
 
-svg.attr("transform", "translate(80, 50)")
+svg.attr("transform", "translate(65, 50)")
 
 //Construct tooltip
-var tooltip = d3.select("#my_dataviz")
+var tooltip = d3.select("#bar-chart")
     .append("div")
     .style("opacity", 0)
     .attr("class", "tooltip")
@@ -68,10 +75,16 @@ function update(selectedVar) {
                 .select(this).style("fill", "black");
         }
         var mousemove = function (d) {
-            tooltip
-                .style("left", d3.mouse(this)[0] + 90 + "px")
-                .style("top", d3.mouse(this)[1] + "px");
 
+            if (window.innerWidth <= 800) {
+                tooltip
+                    .style("left", d3.mouse(this)[0] + 30 + "px")
+                    .style("top", d3.mouse(this)[1] + 250 + "px");
+            } else {
+                tooltip
+                    .style("left", d3.mouse(this)[0] + 190 + "px")
+                    .style("top", d3.mouse(this)[1] + 250 + "px");
+            }
         }
         var mouseleave = function (d) {
             tooltip

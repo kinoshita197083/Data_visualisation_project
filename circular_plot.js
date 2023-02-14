@@ -1,12 +1,18 @@
 // set the dimensions and margins of the graph
-var margin = { top: 100, right: 0, bottom: 0, left: 0 },
-    width = 700 - margin.left - margin.right,
-    height = 660 - margin.top - margin.bottom,
-    innerRadius = 90,
+var margin = { top: 30, right: 0, bottom: 0, left: 0 },
+    width = 430 - margin.left - margin.right,
+    height = 460 - margin.top - margin.bottom,
+    innerRadius = 30,
     outerRadius = Math.min(width, height) / 2;   // the outerRadius goes from the middle of the SVG area to the border
 
+if (window.innerWidth <= 800) {
+    width = 330;
+    height = 440;
+    // svg_circular.style("transform", "translate(" + 10 + "," + 100 + ")");
+}
+
 // append the svg object
-var svg_circular = d3.select("#circular_plot")
+var svg_circular = d3.select("#circular-plot")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -46,7 +52,7 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
         .attr("fill", "#4863A0")
         .attr("d", d3.arc()
             .innerRadius(innerRadius)
-            .outerRadius(function (d) { return y(d['Death/Million(AVG)'] * 380); })
+            .outerRadius(function (d) { return y(d['Death/Million(AVG)'] * 150); })
             .startAngle(function (d) { return x(d.FluType); })
             .endAngle(function (d) { return x(d.FluType) + x.bandwidth(); })
             .padAngle(0.01)
@@ -66,7 +72,7 @@ d3.csv("https://raw.githubusercontent.com/kinoshita197083/Data_visualisation_pro
         .append("text")
         .text(function (d) { return (d.FluType) })
         .attr("transform", function (d) { return (x(d.FluType) + x.bandwidth() / 2 + Math.PI) % (2 * Math.PI) < Math.PI ? "rotate(180)" : "rotate(0)"; })
-        .style("font-size", "11px")
+        .style("font-size", "9px")
         .attr("alignment-baseline", "middle")
 
 });

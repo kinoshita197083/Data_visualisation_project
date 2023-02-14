@@ -1,5 +1,5 @@
 // The svg
-var svg_map = d3.select("#map_dataviz"),
+var svg_map = d3.select("#map-dataviz"),
     width3 = +svg_map.attr("width"),
     height3 = +svg_map.attr("height");
 
@@ -16,7 +16,7 @@ var colorScale = d3.scaleThreshold()
     .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
     .range(d3.schemeReds[3]);
 
-var tooltip_3 = d3.select("#map_label")
+var tooltip_3 = d3.select("#map-label")
     .style("opacity", 0)
     .attr("class", "tooltip")
     .style("background-color", "white")

@@ -1,10 +1,15 @@
 // Define the dimensions and margins
-var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+var margin = { top: 10, right: 30, bottom: 30, left: 50 },
     width2 = 890 - margin.left - margin.right,
     height2 = 600 - margin.top - margin.bottom;
 
+if (window.innerWidth <= 800) {
+    width2 = 280,
+        height2 = 290;
+}
+
 // Append the svg object to the <body>
-var svg2 = d3.select("#lineChart1")
+var svg2 = d3.select("#line-graph")
     .append("svg")
     .attr("width", width2 + margin.left + margin.right)
     .attr("height", height2 + margin.top + margin.bottom)
